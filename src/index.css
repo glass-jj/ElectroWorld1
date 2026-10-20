@@ -142,3 +142,14 @@ body {
     transform: translateY(0);
   }
 }
+
+.panel input[type="range"] {
+  padding: 10px 0;
+  accent-color: #00ffcc;
+  cursor: pointer;
+}
+
+.panel input[type="range"]:focus-visible {
+  outline: 2px solid #ff007f;
+  outline-offset: 3px;
+}
