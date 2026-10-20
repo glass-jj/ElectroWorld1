@@ -1,155 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap');
-
-html,
-body,
-#root {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+:root {
+  font-family: Inter, 'Segoe UI', system-ui, sans-serif;
+  color: #dce7f5;
+  background: #050c16;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark;
 }
-
-body {
-  overflow: hidden;
-  background: #030308;
-}
-
-#root {
-  width: 100vw;
-  height: 100vh;
-}
-
-.app {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-
-.panel {
-  position: absolute;
-  top: 25px;
-  left: 25px;
-  z-index: 10;
-  width: 260px;
-  padding: 24px;
-
-  /* Efecto de cristal translúcido (Glassmorphism) */
-  background: rgba(10, 10, 20, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-
-  /* Borde de neón con degradado */
-  border: 1px solid rgba(0, 255, 204, 0.3);
-  border-radius: 16px;
-
-  /* Sombra de neón exterior e interior */
-  box-shadow: 
-    0 8px 32px 0 rgba(0, 0, 0, 0.7),
-    inset 0 0 15px rgba(0, 255, 204, 0.08),
-    0 0 20px rgba(0, 255, 204, 0.15);
-
-  color: #e0f7fc;
-  font-family: 'Rajdhani', sans-serif;
-  letter-spacing: 0.5px;
-
- 
-  animation: fadeIn 0.8s ease-out;
-}
-
-
-.panel h1 {
-  margin: 0 0 15px 0;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  
-  /* Degradado en el texto */
-  background: linear-gradient(135deg, #646161 0%, #e5e9e5 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  /* Resplandor del título */
-  filter: drop-shadow(0 0 8px rgba(226, 225, 233, 0.6));
-}
-
-/* Labels de los inputs */
-.panel label {
-  display: block;
-  margin-top: 14px;
-  margin-bottom: 6px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #676e6f;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Inputs cibernéticos interactivos */
-.panel input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 14px;
-
-  background: rgba(5, 12, 24, 0.7);
-  color: #00ffcc;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-
-  border: 1px solid rgba(0, 255, 204, 0.25);
-  border-radius: 8px;
-  outline: none;
-
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Efecto Hover y Focus al hacer clic en los inputs */
-.panel input:hover {
-  border-color: rgba(0, 255, 204, 0.6);
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
-}
-
-.panel input:focus {
-  border-color: #ff007f;
-  background: rgba(15, 5, 25, 0.8);
-  color: #ff007f;
-  box-shadow: 0 0 15px rgba(ff, 0, 127, 0.5);
-}
-
-/* Texto de lecturas (Distancia y Fuerza) */
-.panel p {
-  margin: 12px 0 0 0;
-  padding: 8px 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid #00ffcc;
-  border-radius: 0 6px 6px 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #d1f7ff;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.panel input[type="range"] {
-  padding: 10px 0;
-  accent-color: #00ffcc;
-  cursor: pointer;
-}
-
-.panel input[type="range"]:focus-visible {
-  outline: 2px solid #ff007f;
-  outline-offset: 3px;
-}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 360px; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button:disabled, input:disabled { cursor: not-allowed; opacity: 0.4; }
+button, input { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, input:focus-visible { outline: 2px solid #78e1d4; outline-offset: 3px; }
+button { transition: background 0.15s, border-color 0.15s; }
+button:hover:not(:disabled) { filter: brightness(1.15); }
+button, h1, h2, h3, p { margin: 0; }
+input[type='number'] { min-width: 0; width: 100%; border: 1px solid #283b51; border-radius: 6px; background: #091321; color: #e2eefb; padding: 9px 10px; font-variant-numeric: tabular-nums; }
+input[type='number']:hover { border-color: #49728d; }
+input[type='range'] { width: 100%; accent-color: #69daca; margin: 13px 0 4px; }
+input[type='checkbox'] { accent-color: #69daca; width: 16px; height: 16px; cursor: pointer; }
