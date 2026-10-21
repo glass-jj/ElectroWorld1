@@ -1,6 +1,6 @@
 # ElectroWorld
 
-Laboratorio universitario de electrostática: cargas 3D editables, movimiento sobre XY, fuerzas y campo eléctrico por superposición.
+Aplicación móvil de laboratorio de Física II, con navegación entre pantallas y un laboratorio completo de campo eléctrico. Ley de Ohm y minijuegos tienen pantallas preparatorias.
 
 ## Ejecutar
 
@@ -19,7 +19,15 @@ npm test
 
 No se agregaron dependencias. Se conserva React, JavaScript, Vite, Three.js, React Three Fiber y Drei.
 
-## Uso
+## Navegación móvil
+
+Al abrir la aplicación aparece la bienvenida. Pulsa **COMENZAR → SIMULADORES → CAMPO ELÉCTRICO** para acceder al laboratorio existente. Desde SIMULADORES también puedes abrir la pantalla base de **LEY DE OHM**. **MINIJUEGOS** lleva a una pantalla de próximos contenidos; Gauss y magnetismo aparecen desactivados.
+
+Cada pantalla tiene un botón de regreso. Las cargas, la selección, el punto de prueba y las capas del laboratorio se conservan al salir y volver durante la sesión. La navegación utiliza estado de React; no requiere React Router. El módulo 3D se carga al abrirlo, liberando su canvas al salir.
+
+Consulta [la estructura de pantallas y la validación móvil](docs/mobile-navigation.md). Esta copia del repositorio no incluye `android/` ni configuración de Capacitor; no se añadió, modificó ni sincronizó un proyecto nativo.
+
+## Uso del campo eléctrico
 
 - Selecciona una carga en la escena o en la lista y edita su valor en μC y posición en metros.
 - Arrastra las cargas o el punto P sobre XY. El fondo controla la cámara; la rueda hace zoom y el botón derecho desplaza la vista.

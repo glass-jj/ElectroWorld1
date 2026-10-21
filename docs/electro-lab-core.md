@@ -23,7 +23,7 @@ Trabajo realizado en `feat/electro-lab-core`, partiendo del commit `11a9b8ebfb68
 
 ## Arquitectura y archivos
 
-`App.jsx` coordina el estado mediante `useReducer`, deriva las fuerzas y el campo con `useMemo` y conecta el panel con la escena. El estado físico es independiente de los componentes y las fórmulas no se repiten en la presentación.
+Tras integrar la navegación móvil, `App.jsx` conserva el estado mediante `useReducer` y selecciona la pantalla. `screens/ElectricFieldLab.jsx` deriva las fuerzas y el campo con `useMemo` y conecta el panel con la escena. El estado físico es independiente de los componentes y las fórmulas no se repiten en la presentación.
 
 | Archivo creado | Responsabilidad |
 | --- | --- |
