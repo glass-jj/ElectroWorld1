@@ -1,7 +1,7 @@
 import MenuIcon from './MenuIcon.jsx'
 
-export default function ScreenLayout({ title, description, onBack, backLabel = 'Volver al menú principal', eyebrow = 'FÍSICA II', children }) {
-  return <main className="mobile-screen">
+export default function ScreenLayout({ title, description, onBack, backLabel = 'Volver al menú principal', eyebrow = 'FÍSICA II', className = '', children }) {
+  return <main className={`mobile-screen ${className}`}>
     <div className="mobile-screen-inner">
       <header className="mobile-topbar">
         <button type="button" className="screen-back-button" onClick={onBack} aria-label={backLabel}><MenuIcon name="back" /></button>
