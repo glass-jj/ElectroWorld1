@@ -1,7 +1,7 @@
 :root {
   font-family: Inter, 'Segoe UI', system-ui, sans-serif;
-  color: #dce7f5;
-  background: #050c16;
+  color: #eeede8;
+  background: #0b0c0f;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -13,11 +13,11 @@ button, input { font: inherit; }
 button { cursor: pointer; }
 button:disabled, input:disabled { cursor: not-allowed; opacity: 0.4; }
 button, input { -webkit-tap-highlight-color: transparent; }
-button:focus-visible, input:focus-visible { outline: 2px solid #78e1d4; outline-offset: 3px; }
+button:focus-visible, input:focus-visible { outline: 2px solid #d3d5c9; outline-offset: 3px; }
 button { transition: background 0.15s, border-color 0.15s; }
 button:hover:not(:disabled) { filter: brightness(1.15); }
 button, h1, h2, h3, p { margin: 0; }
 input[type='number'] { min-width: 0; width: 100%; border: 1px solid #283b51; border-radius: 6px; background: #091321; color: #e2eefb; padding: 9px 10px; font-variant-numeric: tabular-nums; }
 input[type='number']:hover { border-color: #49728d; }
-input[type='range'] { width: 100%; accent-color: #69daca; margin: 13px 0 4px; }
-input[type='checkbox'] { accent-color: #69daca; width: 16px; height: 16px; cursor: pointer; }
+input[type='range'] { width: 100%; accent-color: #c5cbbd; margin: 13px 0 4px; }
+input[type='checkbox'] { accent-color: #c5cbbd; width: 16px; height: 16px; cursor: pointer; }

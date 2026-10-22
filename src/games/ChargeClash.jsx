@@ -1,68 +1,69 @@
 import { useRef, useState } from 'react'
 import ScreenLayout from '../components/ScreenLayout.jsx'
-import { GameFeedback, GameHud, GameSummary } from './GameUI.jsx'
-import { checkClashAnswer, CLASH_DURATION, createClashRound } from './gameLogic.js'
+import { GameHud, GameSummary } from './GameUI.jsx'
+import { CLASH_DURATION, createClashRound } from './gameLogic.js'
+import { captureCharge, getCapturePoints, getWaveDuration } from './arcadeLogic.js'
 import useCountdown from './useCountdown.js'
 import useGameTimeout from './useGameTimeout.js'
+import useArcadeLoop from './useArcadeLoop.js'
 
 export default function ChargeClash({ onBack, onRecord }) {
-  const [signs, setSigns] = useState(createClashRound)
+  const [incoming, setIncoming] = useState(() => createClashRound()[0])
+  const [collector, setCollector] = useState(1)
   const [score, setScore] = useState(0)
   const [streak, setStreak] = useState(0)
-  const [bestStreak, setBestStreak] = useState(0)
+  const [hits, setHits] = useState(0)
+  const [lives, setLives] = useState(3)
   const [feedback, setFeedback] = useState(null)
+  const [progress, setProgress] = useState(0)
+  const startedRef = useRef(0)
   const locked = useRef(false)
   const timer = useCountdown(CLASH_DURATION)
   const { schedule, cancel } = useGameTimeout()
-  function start() {
-    cancel()
+  const finished = timer.finished || lives === 0
+  function newWave(count) {
+    startedRef.current = Date.now()
+    setIncoming(createClashRound()[0]); setProgress(0); setFeedback(null)
     locked.current = false
-    setSigns(createClashRound())
-    setScore(0)
-    setStreak(0)
-    setBestStreak(0)
-    setFeedback(null)
-    timer.start()
+    return getWaveDuration(count)
   }
-  function answer(choice) {
-    if (!timer.active || timer.hasExpired() || locked.current) return
+  function start() {
+    cancel(); setScore(0); setStreak(0); setHits(0); setLives(3)
+    newWave(0); timer.start()
+  }
+  function resolve(progressValue) {
+    if (!timer.active || timer.hasExpired() || locked.current || finished) return
     locked.current = true
-    const result = checkClashAnswer(signs, choice)
-    setFeedback(result)
-    if (result.correct) {
-      const nextScore = score + 100
-      setScore(nextScore)
-      setStreak(streak + 1)
-      setBestStreak(Math.max(bestStreak, streak + 1))
-      onRecord(nextScore)
-    } else setStreak(0)
-    schedule(() => {
-      setSigns(createClashRound())
-      setFeedback(null)
-      locked.current = false
-    }, 850)
+    const result = captureCharge(incoming, collector, progressValue)
+    const points = result.correct ? getCapturePoints(streak) : 0
+    const nextHits = hits + (result.correct ? 1 : 0)
+    setFeedback({ ...result, points })
+    if (result.correct) { setScore(score + points); setStreak(streak + 1); setHits(nextHits); onRecord(score + points) }
+    else { setLives(lives - 1); setStreak(0); if (lives === 1) { timer.stop(); return } }
+    schedule(() => newWave(nextHits), 650)
   }
-  return <ScreenLayout title="Carga Clash" description="Dos cargas. Una decisión. ¡Haz crecer tu racha!" onBack={onBack} backLabel="Volver a minijuegos" eyebrow="ATRACCIÓN O REPULSIÓN" className="interactive-screen game-screen">
-    {timer.finished ? <GameSummary score={score} detail={`Mejor racha: ${bestStreak} · 45 segundos de energía`} onReplay={start} onBack={onBack} /> : <>
-      <GameHud score={score} label="Tiempo" value={`${timer.seconds} s`} extraLabel="Racha" extraValue={`×${streak}`} />
-      <div className="game-timer-track" role="progressbar" aria-label="Tiempo restante" aria-valuemin={0} aria-valuemax={45} aria-valuenow={timer.seconds}><span style={{ width: `${timer.seconds / 45 * 100}%` }} /></div>
-      <div className={`clash-arena ${feedback ? `clash-${feedback.interaction}` : ''}`}>
-        <p className="arena-kicker">¿ATRACCIÓN O REPULSIÓN?</p>
-        <div className="clash-charges">
-          {signs.map((sign, index) => <span key={index} className={`clash-charge ${sign > 0 ? 'positive' : 'negative'}`} aria-label={`Carga ${index + 1} ${sign > 0 ? 'positiva' : 'negativa'}`}>{sign > 0 ? '+' : '−'}</span>)}
+  useArcadeLoop(() => {
+    const next = (Date.now() - startedRef.current) / getWaveDuration(hits)
+    setProgress(Math.min(1, next))
+    if (next >= 1) resolve(next)
+  }, timer.active && !finished && !feedback)
+  const timingText = progress < 0.55 ? 'Se acerca…' : progress <= 0.82 ? 'Ahora. ¡Captúrala!' : 'Se escapa…'
+  const messages = { early: 'Demasiado pronto. Espera a la zona.', late: 'Se escapó. Prueba con la siguiente.', repelled: 'Mismo signo: la rechazaste.' }
+  return <ScreenLayout title="Carga Clash" description="Cambia tu signo y atrapa la carga en el momento justo." onBack={onBack} backLabel="Volver a minijuegos" eyebrow="REFLEJOS / 01" className="interactive-screen game-screen arcade-clash-screen">
+    {finished ? <GameSummary score={score} detail={`${hits} capturas · ${lives === 0 ? 'Sin vidas' : 'Tiempo completado'}`} onReplay={start} onBack={onBack} /> : <>
+      <GameHud score={score} label="Tiempo" value={`${timer.seconds} s`} extraLabel="Vidas" extraValue={`${lives}/3`} />
+      <div className={`capture-arena ${feedback?.correct ? 'capture-arena--hit' : ''}`}>
+        <span className="arena-kicker">USA EL SIGNO OPUESTO PARA ATRAER</span>
+        <div className="capture-lane">
+          <div className="capture-zone"><span>ZONA DE CAPTURA</span></div>
+          <span className={`incoming-charge ${incoming > 0 ? 'positive' : 'negative'}`} aria-label={`Carga entrante ${incoming > 0 ? 'positiva' : 'negativa'}`} style={{ top: `${8 + progress * 70}%` }}>{incoming > 0 ? '+' : '−'}</span>
+          <span className={`collector-charge ${collector > 0 ? 'positive' : 'negative'}`}>{collector > 0 ? '+' : '−'}</span>
         </div>
-        <span className="clash-direction" aria-hidden="true">{feedback ? feedback.interaction === 'attraction' ? '→ ←' : '← →' : '· · ·'}</span>
+        <p className="capture-timing" role="status">{feedback ? feedback.correct ? `Capturada. +${feedback.points} · Racha ×${streak}` : messages[feedback.status] : timer.active ? timingText : 'Elige tu signo. Espera. Captura.'}</p>
       </div>
-      {!timer.active ? <>
-        <p className="game-tip">Acierta para sumar +100. Tienes 45 segundos.</p>
-        <button type="button" className="primary-mobile-button" onClick={start}>EMPEZAR · 45 s<span aria-hidden="true">→</span></button>
-      </> : <>
-        <div className="clash-actions">
-          <button type="button" onClick={() => answer('attraction')} disabled={!!feedback}>ATRACCIÓN<span aria-hidden="true">→ ←</span></button>
-          <button type="button" onClick={() => answer('repulsion')} disabled={!!feedback}>REPULSIÓN<span aria-hidden="true">← →</span></button>
-        </div>
-        {feedback ? <GameFeedback status={feedback.correct ? 'hit' : 'miss'} title={feedback.correct ? '¡Correcto! +100' : 'Casi.'}>{feedback.interaction === 'repulsion' ? 'Cargas iguales se repelen.' : 'Cargas distintas se atraen.'}</GameFeedback> : <p className="game-tip">Toca tu respuesta. ¡Cada acierto cuenta!</p>}
-      </>}
+      <div className="polarity-switch" aria-label="Signo de tu carga"><button type="button" aria-pressed={collector === 1} onClick={() => setCollector(1)} disabled={!!feedback}>CARGA +</button><button type="button" aria-pressed={collector === -1} onClick={() => setCollector(-1)} disabled={!!feedback}>CARGA −</button></div>
+      <button type="button" className="primary-mobile-button" onClick={timer.active ? () => resolve((Date.now() - startedRef.current) / getWaveDuration(hits)) : start} disabled={!!feedback}>{timer.active ? 'CAPTURAR' : 'EMPEZAR · 45 s'}<span aria-hidden="true">↓</span></button>
+      <p className="game-tip">Signos opuestos se atraen. Tres vidas; la racha aumenta los puntos.</p>
     </>}
   </ScreenLayout>
 }

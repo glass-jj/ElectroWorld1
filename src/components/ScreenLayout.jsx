@@ -6,7 +6,7 @@ export default function ScreenLayout({ title, description, onBack, backLabel = '
       <header className="mobile-topbar">
         <button type="button" className="screen-back-button" onClick={onBack} aria-label={backLabel}><MenuIcon name="back" /></button>
         <span className="mobile-wordmark">ELECTRO<span>WORLD</span></span>
-        <span className="topbar-spark" aria-hidden="true"><MenuIcon name="bolt" /></span>
+        <span className="edition-label">FÍSICA II</span>
       </header>
       <div className="mobile-screen-heading">
         <p className="mobile-eyebrow">{eyebrow}</p>
@@ -14,7 +14,7 @@ export default function ScreenLayout({ title, description, onBack, backLabel = '
         {description && <p className="mobile-description">{description}</p>}
       </div>
       {children}
-      <footer className="mobile-screen-footer"><span className="footer-dot" />Un universo por descubrir.</footer>
+      <footer className="mobile-screen-footer"><span>ELECTROWORLD</span><span>APRENDE EXPLORANDO</span></footer>
     </div>
   </main>
 }
