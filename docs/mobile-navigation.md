@@ -5,24 +5,24 @@
 - Bienvenida → COMENZAR → menú principal.
 - Menú principal → SIMULADORES → menú de simuladores.
 - Simuladores → CAMPO ELÉCTRICO → laboratorio existente.
-- Simuladores → LEY DE OHM → pantalla base de voltaje, resistencia y corriente.
-- Menú principal → MINIJUEGOS → pantalla de próximos contenidos.
-- Botones de regreso en todas las pantallas secundarias. Minijuegos también permite abrir los simuladores.
+- Simuladores → LEY DE OHM → circuito interactivo con V, R, I y P.
+- Menú principal → MINIJUEGOS → Carga Clash / Power Up / Coulomb Shot.
+- Botones de regreso en todas las pantallas secundarias. Cada juego vuelve a Minijuegos; cada simulador vuelve a Simuladores.
 
-Gauss y magnetismo solo aparecen como tarjetas desactivadas con la etiqueta Próximamente. No se implementaron minijuegos, cálculos de Ohm ni simuladores adicionales.
+Gauss y magnetismo solo aparecen como tarjetas desactivadas con la etiqueta Próximamente. Ley de Ohm y los tres minijuegos ya son funcionales; consulta [su guía](ohm-and-games.md).
 
 ## Organización
 
 | Archivo | Responsabilidad |
 | --- | --- |
-| `src/App.jsx` | Estado de navegación (`welcome`, `main-menu`, `simulators`, `games`, `electric-field`, `ohms-law`), conservación del estado del laboratorio, foco y título de cada pantalla. |
+| `src/App.jsx` | Estado de navegación (`welcome`, `main-menu`, `simulators`, `games`, `charge-clash`, `power-up`, `coulomb-shot`, `electric-field`, `ohms-law`), conservación del estado del laboratorio, foco y título de cada pantalla. |
 | `src/screens/WelcomeScreen.jsx` | Bienvenida, identidad de ElectroWorld, textos y botón COMENZAR. |
 | `src/screens/MainMenu.jsx` | Tarjetas SIMULADORES y MINIJUEGOS. |
 | `src/screens/SimulatorsMenu.jsx` | Acceso a Campo eléctrico y Ley de Ohm; tarjetas futuras. |
-| `src/screens/GamesMenu.jsx` | Pantalla preparatoria de minijuegos. |
+| `src/screens/GamesMenu.jsx` | Catálogo de tres juegos y récords de sesión. |
 | `src/screens/ElectricFieldLab.jsx` | Laboratorio extraído del anterior App, con regreso a simuladores. |
 | `src/screens/ElectricFieldLab.css` | Estilos existentes del laboratorio trasladados y ajustes de tamaños táctiles y márgenes seguros. |
-| `src/screens/OhmsLawLab.jsx` | Estructura visual de voltaje, resistencia y corriente, sin controles de simulación. |
+| `src/screens/OhmsLawLab.jsx` | Circuito interactivo, sliders de V/R, lecturas de I/P y feedback breve. |
 | `src/components/MenuCard.jsx` | Tarjetas táctiles reutilizables y estados Próximamente. |
 | `src/components/MenuIcon.jsx` | Iconos SVG locales, sin librerías adicionales. |
 | `src/components/ScreenLayout.jsx` | Encabezado, botón de regreso y estructura compartida por menús y pantalla de Ohm. |
@@ -34,11 +34,11 @@ También se actualizaron `README.md` y la referencia de arquitectura de `docs/el
 
 ## Conservación del simulador
 
-Se reutilizan sin cambios `src/physics/`, `src/lab/`, los componentes de cargas, vectores, distancias, campo, panel, escena y el hook de arrastre. No se reescribió ninguna fórmula. Las pruebas de física y estado tampoco cambian.
+Se reutilizan sin cambios `src/physics/electrostatics.js`, `src/lab/`, los componentes de cargas, vectores, distancias, campo, panel, escena y el hook de arrastre. No se reescribió ninguna fórmula. Las pruebas de física y estado tampoco cambian.
 
 `App.jsx` mantiene el reducer del laboratorio. Al cerrar la pantalla se desmonta el canvas para liberar los recursos 3D, pero permanecen cargas, valores, posiciones, selección, punto P y opciones visuales. Al volver, se reconstruye la escena con esos datos. La cámara vuelve a su vista inicial; el reinicio del laboratorio sigue siendo explícito. Recargar la aplicación inicia una nueva sesión en la bienvenida.
 
-`React.lazy` y `Suspense` cargan el módulo 3D solo al entrar a Campo eléctrico. Los menús no crean un canvas ni descargan el paquete 3D. La compilación inicial queda en aproximadamente 204 kB de JavaScript sin comprimir y 65 kB gzip; el laboratorio tiene su paquete aparte.
+`React.lazy` y `Suspense` cargan el módulo 3D solo al entrar a Campo eléctrico. Los menús no crean un canvas ni descargan el paquete 3D. La compilación inicial queda en aproximadamente 221 kB de JavaScript sin comprimir y 70 kB gzip; el laboratorio tiene su paquete aparte.
 
 No se instaló React Router ni ninguna dependencia. La navegación se resuelve con estado de React y botones visibles; no se añadieron rutas de servidor ni integraciones con el botón físico de Android.
 
@@ -50,7 +50,7 @@ Esta copia del repositorio no contiene `android/`, `capacitor.config.*` ni depen
 
 ## Validación
 
-Validado el 21 de octubre de 2026.
+La navegación base se validó el 21 de octubre de 2026. La ampliación de Ohm y los juegos tiene su validación actualizada en [ohm-and-games.md](ohm-and-games.md).
 
 - `npm run build`: correcto, con paquete independiente para ElectricFieldLab. Permanece el aviso de Vite por el tamaño del módulo 3D.
 - `npm run lint`: correcto.
@@ -69,6 +69,6 @@ Las comprobaciones de navegador se ejecutaron con Playwright ya disponible en el
 3. Abre SIMULADORES. Verifica Campo eléctrico, Ley de Ohm y las tarjetas futuras desactivadas.
 4. Abre Campo eléctrico. Añade una carga, cambia su valor/posición, mueve el slider, arrastra una esfera y P, y prueba las cuatro capas.
 5. Regresa a simuladores y vuelve a Campo eléctrico. Comprueba que se conservaron los datos y las opciones.
-6. Abre Ley de Ohm. Deben aparecer Voltaje, Resistencia y Corriente, con un aviso de preparación y sin simulador funcional. Regresa al menú.
-7. Abre MINIJUEGOS desde el menú principal. Comprueba el estado Próximamente y los botones de regreso y de acceso a simuladores.
+6. Abre Ley de Ohm. Ajusta los sliders de V/R y comprueba corriente, potencia, flujo y brillo. Regresa al menú.
+7. Abre MINIJUEGOS desde el menú principal. Abre los tres juegos, prueba sus botones de regreso y comprueba el récord después de sumar puntos.
 8. Prueba un ancho de 320 px y orientación horizontal: las tarjetas siguen siendo táctiles y el contenido se desplaza verticalmente sin recortarse horizontalmente.
