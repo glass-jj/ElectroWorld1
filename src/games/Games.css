@@ -1,0 +1,79 @@
+.game-hud { display: grid; grid-template-columns: 1fr 1fr 1fr; margin: 0 0 16px; border: 1px solid #304255; border-radius: 12px; background: #101d2c; }
+.game-hud > div { padding: 12px 7px; text-align: center; }
+.game-hud > div + div { border-left: 1px solid #2a3a4d; }
+.game-hud dt { font-size: 10px; color: #9db0c3; }
+.game-hud dd { margin: 7px 0 0; color: #ccf3e2; font-size: 21px; font-variant-numeric: tabular-nums; font-weight: 600; }
+.game-timer-track { height: 4px; border-radius: 4px; overflow: hidden; background: #203341; margin: -7px 8px 18px; }
+.game-timer-track > span { display: block; height: 100%; background: #96e3cc; transition: width 100ms linear; }
+.clash-arena { background: radial-gradient(ellipse at center, #16313e, #101b2b); border: 1px solid #2f475b; border-radius: 20px; padding: 24px 16px 18px; text-align: center; }
+.arena-kicker { font-size: 10px; letter-spacing: 1px; color: #a7bfd5; }
+.clash-charges { display: flex; justify-content: center; gap: 56px; margin: 34px 0 14px; min-height: 76px; }
+.clash-charge { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; font-size: 42px; line-height: 1; font-weight: 350; color: white; transition: transform 400ms ease-in-out; border: 1px solid #abccff; background: radial-gradient(circle at 32% 28%, #76b7ff, #2565cd); box-shadow: 0 0 24px #4288ed26; }
+.clash-charge.negative { border-color: #ffacbd; background: radial-gradient(circle at 32% 28%, #ff9aa8, #cd3f5a); box-shadow: 0 0 24px #f36a8526; }
+.clash-attraction .clash-charge:first-child { transform: translateX(27px); }
+.clash-attraction .clash-charge:last-child { transform: translateX(-27px); }
+.clash-repulsion .clash-charge:first-child { transform: translateX(-21px); }
+.clash-repulsion .clash-charge:last-child { transform: translateX(21px); }
+.clash-direction { display: block; font-size: 23px; color: #b8e6dc; letter-spacing: 6px; height: 32px; }
+.clash-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+.clash-actions button { min-height: 72px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 12px 6px; font-size: 12px; letter-spacing: 0.5px; font-weight: 600; color: #c8f7e7; border: 1px solid #37665f; border-radius: 12px; background: #163731; touch-action: manipulation; }
+.clash-actions button:last-child { background: #242844; border-color: #4d5079; color: #d4cdff; }
+.clash-actions button > span { font-size: 19px; }
+.game-tip { font-size: 11px; color: #9db1c6; line-height: 1.8; text-align: center; margin: 18px 0; }
+.game-feedback { display: flex; flex-direction: column; gap: 7px; min-height: 72px; padding: 15px; border: 1px solid #3a6b58; border-radius: 12px; margin-top: 16px; background: #12342c; color: #a9edce; animation: feedback-in 200ms ease-out; }
+.game-feedback > strong { font-size: 15px; font-weight: 600; }
+.game-feedback > span { font-size: 12px; line-height: 1.6; }
+.game-feedback--miss { background: #342a23; border-color: #755a43; color: #f4c39a; animation: feedback-shake 200ms ease-out; }
+.power-mission { text-align: center; margin: 18px 0; }
+.power-mission > span { font-size: 9px; letter-spacing: 1.6px; color: #e4c286; }
+.power-mission h2 { font-size: 24px; margin: 8px 0; font-weight: 550; color: #f6dbac; }
+.power-mission p { font-size: 10px; color: #94a9bf; }
+.game-summary { text-align: center; background: linear-gradient(155deg, #16362e, #101c2b); border: 1px solid #3d6759; border-radius: 20px; padding: 24px 18px 12px; }
+.summary-icon { width: 64px; height: 64px; margin: 0 auto 22px; border: 1px solid #5a9e85; background: #235242; border-radius: 20px; display: grid; place-items: center; color: #c1f9d3; }
+.summary-icon .menu-icon { width: 34px; height: 34px; }
+.game-summary h2 { font-size: 30px; font-weight: 550; margin-top: 13px; }
+.summary-score { font-size: 54px; color: #a6f0d1; font-weight: 600; margin-top: 24px; }
+.summary-score > span { display: block; font-size: 11px; color: #9fbda9; font-weight: 400; }
+.summary-detail { font-size: 12px; line-height: 1.8; color: #a9c8bb; margin: 20px 0 25px; }
+.game-text-button { background: none; border: 0; color: #b8d5cb; min-height: 48px; font-size: 12px; margin-top: 12px; }
+.shot-arena { background: radial-gradient(ellipse at 65% 60%, #2a2e2866, transparent), #101d2b; border: 1px solid #384a51; border-radius: 18px; padding: 17px 18px 14px; }
+.shot-arena-title, .shot-scale { display: flex; justify-content: space-between; gap: 10px; color: #91a8b9; font-size: 8px; letter-spacing: 0.6px; }
+.shot-track { position: relative; height: 136px; margin: 0 13px; }
+.shot-ground { position: absolute; top: 93px; width: 100%; height: 2px; background: repeating-linear-gradient(90deg, #576b7d 0 7px, transparent 7px 12px); }
+.shot-target { position: absolute; top: 35px; bottom: 19px; border: 1px dashed #91dca6; background: #5dca8520; border-radius: 9px; display: grid; place-items: start center; color: #a6efba; }
+.shot-target > span { font-size: 21px; margin-top: 5px; }
+.shot-particle, .shot-origin { position: absolute; top: 78px; z-index: 1; transform: translateX(-50%); display: grid; place-items: center; border-radius: 50%; width: 30px; height: 30px; background: #5b9fff; border: 1px solid #c7deff; color: white; font-size: 23px; }
+.shot-origin { left: 0; background: none; border: 1px dashed #5d84a5; color: #5d84a5; z-index: 0; }
+.shot-particle.is-flying { animation: shot-flight 650ms cubic-bezier(0.15, 0.5, 0.4, 1) forwards; }
+.shot-arena--hit { border-color: #a9f2b8; animation: target-hit 350ms ease-out; }
+.shot-force { display: flex; justify-content: space-between; margin-top: 15px; font-size: 12px; color: #9aafc3; }
+.shot-force output { color: #e8ca92; font-variant-numeric: tabular-nums; }
+.games-catalog { display: grid; gap: 16px; }
+.game-menu-card { border: 1px solid #38475b; border-radius: 17px; padding: 20px; background: linear-gradient(130deg, #202e4255, #101c2c); }
+.game-menu-card--power-up { border-color: #5b4b33; background: linear-gradient(130deg, #3b2b1e55, #101c2c); }
+.game-menu-card--coulomb-shot { border-color: #3d5650; background: linear-gradient(130deg, #1d3a2d55, #101c2c); }
+.game-card-heading { display: flex; align-items: center; gap: 13px; }
+.game-card-heading > .menu-card-icon { width: 42px; height: 42px; color: #b4caff; }
+.game-card-heading h2 { font-size: 15px; font-weight: 600; letter-spacing: 0.6px; }
+.game-menu-card p { font-size: 12px; color: #a4b7cb; line-height: 1.7; margin: 13px 0; }
+.game-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.game-record { color: #a8bcd0; font-size: 10px; }
+.game-record strong { display: block; color: #d7e5f4; font-size: 18px; margin-top: 5px; font-variant-numeric: tabular-nums; }
+.game-play-button { display: flex; justify-content: center; align-items: center; gap: 12px; min-width: 120px; min-height: 48px; padding: 10px 18px; color: #c4f7e5; background: #1a3f35; border: 1px solid #4b7e6b; border-radius: 10px; font-size: 12px; font-weight: 650; touch-action: manipulation; }
+@keyframes feedback-in { from { transform: translateY(4px); opacity: 0.7; } to { transform: translateY(0); opacity: 1; } }
+@keyframes feedback-shake { 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
+@keyframes shot-flight { from { left: 0; } to { left: var(--shot-end); } }
+@keyframes target-hit { 50% { box-shadow: 0 0 0 5px #8ee7a42b; } }
+@media (max-width: 360px) { .clash-charges { gap: 44px; } .clash-charge { width: 64px; height: 64px; } .game-card-heading h2 { font-size: 13px; } .game-menu-card { padding: 17px; } }
+@media (prefers-reduced-motion: reduce) {
+  .clash-charge, .game-timer-track > span { transition: none; }
+  .game-feedback, .shot-arena--hit, .shot-particle.is-flying { animation: none; }
+}
+
+/* Keep the mission, circuit and action close together on a portrait phone. */
+.power-up-screen .circuit svg { max-height: 170px; }
+.power-up-screen .power-mission { margin: 10px 0 14px; }
+.power-up-screen .ohm-controls { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin: 14px 0; }
+.power-up-screen .ohm-control { padding: 12px 10px 10px; }
+.power-up-screen .ohm-control > div:first-child { flex-direction: column; align-items: flex-start; gap: 7px; }
+.power-up-screen .ohm-control label { font-size: 12px; }
