@@ -22,5 +22,5 @@ export default function useCountdown(duration) {
     }
   }, [deadline])
   const hasExpired = useCallback(() => deadline !== null && Date.now() >= deadline, [deadline])
-  return { seconds: Math.ceil(remaining / 1000), active: deadline !== null, finished: remaining === 0, start, hasExpired }
+  return { seconds: Math.ceil(remaining / 1000), active: deadline !== null, finished: remaining === 0, start, stop: () => setDeadline(null), hasExpired }
 }
