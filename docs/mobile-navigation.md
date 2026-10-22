@@ -40,7 +40,7 @@ Se reutilizan sin cambios `src/physics/electrostatics.js`, `src/lab/`, los compo
 
 `React.lazy` y `Suspense` cargan el módulo 3D solo al entrar a Campo eléctrico. Los menús no crean un canvas ni descargan el paquete 3D. La compilación inicial queda en aproximadamente 221 kB de JavaScript sin comprimir y 70 kB gzip; el laboratorio tiene su paquete aparte.
 
-No se instaló React Router ni ninguna dependencia. La navegación se resuelve con estado de React y botones visibles; no se añadieron rutas de servidor ni integraciones con el botón físico de Android.
+No se instaló React Router. La portada ahora admite el runtime oficial de Spline opcional; consulta [su configuración](dark-redesign-and-spline.md). La navegación se resuelve con estado de React y botones visibles; no se añadieron rutas de servidor ni integraciones con el botón físico de Android.
 
 ## Adaptación móvil y Capacitor
 

@@ -17,7 +17,7 @@ npm run lint
 npm test
 ```
 
-No se agregaron dependencias. Se conserva React, JavaScript, Vite, Three.js, React Three Fiber y Drei.
+Se conserva React, JavaScript, Vite, Three.js, React Three Fiber y Drei. Spline utiliza su runtime oficial con carga diferida opcional; consulta la [configuración y el rediseño](docs/dark-redesign-and-spline.md).
 
 ## Navegación móvil
 
@@ -44,10 +44,12 @@ Consulta [la guía completa de implementación y pruebas](docs/electro-lab-core.
 ## Ohm y minijuegos
 
 - **Ley de Ohm:** mueve V entre 0 y 24 V y R entre 1 y 100 Ω. Las lecturas cumplen I = V/R y P = V×I. La corriente controla la animación simbólica del flujo; la potencia controla el brillo. Con 0 V el flujo se detiene.
-- **Carga Clash:** pulsa EMPEZAR y responde atracción o repulsión durante 45 segundos. Cada acierto suma 100 puntos y una equivocación reinicia la racha.
-- **Power Up:** alcanza cinco corrientes objetivo ajustando V y R. Pulsa PROBAR; se acepta ±5 %. Cada misión resuelta suma 300 puntos.
-- **Coulomb Shot:** ajusta carga y distancia y pulsa LANZAR para llegar a la zona objetivo. Cada impacto suma 500 puntos; hay cinco rondas. La fuerza usa la función de Coulomb existente y se transforma en alcance visual arcade.
+- **Carga Clash:** cambia tu polaridad y captura la carga entrante al llegar a la zona. Tres vidas, hasta 45 segundos y puntos por rachas.
+- **Power Up:** mantén pulsado para cargar y suelta cerca de la corriente objetivo. Elige resistencia; cinco misiones, tres vidas y puntos por precisión (±8 %).
+- **Coulomb Shot:** mantén para apuntar y suelta para lanzar hacia una zona móvil. Elige distancia; cinco rondas con tres tiros por ronda. Se reutiliza la física de Coulomb y el alcance arcade.
 
-Los intentos fallidos se pueden repetir. Las partidas tienen botones de regreso y de reinicio; los récords permanecen en React durante la sesión y se borran al recargar. No se usa backend, audio, recursos remotos ni dependencias nuevas. Las animaciones respetan movimiento reducido.
+Los intentos fallidos se pueden repetir. Las partidas tienen botones de regreso y de reinicio; los récords permanecen en React durante la sesión y se borran al recargar. Los juegos no usan backend ni audio. La portada puede cargar una escena de Spline si se configura; sin escena usa una ilustración local. Las animaciones respetan movimiento reducido.
 
 Consulta [la arquitectura, reglas y pruebas de Ohm y los juegos](docs/ohm-and-games.md).
+
+La portada y los menús tienen un nuevo estilo negro, grafito y marfil. [Vista previa, reglas arcade y activación de Spline](docs/dark-redesign-and-spline.md).

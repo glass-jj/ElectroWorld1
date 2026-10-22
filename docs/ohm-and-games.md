@@ -1,5 +1,7 @@
 # Ley de Ohm y minijuegos
 
+> Esta guía documenta la primera versión de los juegos. Las mecánicas actuales de captura, mantener/soltar y objetivos móviles están en [Rediseño oscuro y juegos arcade](dark-redesign-and-spline.md). El laboratorio de Ohm conserva sus fórmulas y controles.
+
 ## Alcance
 
 Se amplía `feat/electro-lab-core` sobre la navegación móvil existente. No se modifican `electrostatics.js`, el estado ni los componentes del laboratorio de campo eléctrico, Android, Capacitor o las dependencias.
