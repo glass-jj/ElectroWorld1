@@ -1,0 +1,210 @@
+{
+  "welcome-instrument": {
+    "nodeId": "5:8003",
+    "width": 364,
+    "height": 308,
+    "file": "welcome-instrument.svg",
+    "intrinsicWidth": 364.0,
+    "intrinsicHeight": 308.0
+  },
+  "dashboard-field": {
+    "nodeId": "5:8053",
+    "width": 332,
+    "height": 54,
+    "file": "dashboard-field.svg",
+    "intrinsicWidth": 292.0,
+    "intrinsicHeight": 50.0
+  },
+  "field-preview": {
+    "nodeId": "10:2",
+    "width": 332,
+    "height": 88,
+    "file": "field-preview.svg",
+    "intrinsicWidth": 332.0,
+    "intrinsicHeight": 88.0
+  },
+  "ohm-preview": {
+    "nodeId": "10:15",
+    "width": 332,
+    "height": 88,
+    "file": "ohm-preview.svg",
+    "intrinsicWidth": 332.0,
+    "intrinsicHeight": 88.0
+  },
+  "clash-preview": {
+    "nodeId": "10:27",
+    "width": 128,
+    "height": 137,
+    "file": "clash-preview.svg",
+    "intrinsicWidth": 128.0,
+    "intrinsicHeight": 137.0
+  },
+  "power-preview": {
+    "width": 128,
+    "height": 137,
+    "file": "power-preview.svg",
+    "nodeId": "10:36",
+    "intrinsicWidth": 128.0,
+    "intrinsicHeight": 137.0
+  },
+  "shot-preview": {
+    "nodeId": "10:48",
+    "width": 128,
+    "height": 137,
+    "file": "shot-preview.svg",
+    "intrinsicWidth": 128.0,
+    "intrinsicHeight": 137.0
+  },
+  "orbit-brand": {
+    "nodeId": "5:8705",
+    "width": 26,
+    "height": 26,
+    "file": "orbit-brand.svg",
+    "intrinsicWidth": 26.0,
+    "intrinsicHeight": 26.0
+  },
+  "orbit-main": {
+    "nodeId": "5:8720",
+    "width": 20,
+    "height": 20,
+    "file": "orbit-main.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "user": {
+    "nodeId": "5:8723",
+    "width": 20,
+    "height": 20,
+    "file": "user.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "available-dot": {
+    "nodeId": "5:8050",
+    "width": 4,
+    "height": 4,
+    "file": "available-dot.svg",
+    "intrinsicWidth": 4.0,
+    "intrinsicHeight": 4.0
+  },
+  "arrow-up": {
+    "nodeId": "5:8726",
+    "width": 20,
+    "height": 20,
+    "file": "arrow-up.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "game-large": {
+    "nodeId": "5:8729",
+    "width": 36,
+    "height": 36,
+    "file": "game-large.svg",
+    "intrinsicWidth": 36.0,
+    "intrinsicHeight": 36.0
+  },
+  "bolt": {
+    "nodeId": "5:8732",
+    "width": 20,
+    "height": 20,
+    "file": "bolt.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "arrow-right": {
+    "nodeId": "5:8708",
+    "width": 20,
+    "height": 20,
+    "file": "arrow-right.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "back": {
+    "nodeId": "5:8756",
+    "width": 20,
+    "height": 20,
+    "file": "back.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "help": {
+    "nodeId": "5:8759",
+    "width": 20,
+    "height": 20,
+    "file": "help.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "sliders": {
+    "nodeId": "5:8768",
+    "width": 18,
+    "height": 18,
+    "file": "sliders.svg",
+    "intrinsicWidth": 18.0,
+    "intrinsicHeight": 18.0
+  },
+  "bulb": {
+    "nodeId": "5:8882",
+    "width": 18,
+    "height": 18,
+    "file": "bulb.svg",
+    "intrinsicWidth": 18.0,
+    "intrinsicHeight": 18.0
+  },
+  "home-active": {
+    "nodeId": "5:8738",
+    "width": 20,
+    "height": 20,
+    "file": "home-active.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "home": {
+    "nodeId": "5:8771",
+    "width": 20,
+    "height": 20,
+    "file": "home.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "orbit-active": {
+    "nodeId": "5:8774",
+    "width": 20,
+    "height": 20,
+    "file": "orbit-active.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "orbit": {
+    "nodeId": "5:8741",
+    "width": 20,
+    "height": 20,
+    "file": "orbit.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "game-active": {
+    "nodeId": "5:8891",
+    "width": 20,
+    "height": 20,
+    "file": "game-active.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "game": {
+    "nodeId": "5:8744",
+    "width": 20,
+    "height": 20,
+    "file": "game.svg",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  },
+  "arrow-right-light": {
+    "width": 20,
+    "height": 20,
+    "file": "arrow-right-light.svg",
+    "nodeId": "5:8735",
+    "intrinsicWidth": 20.0,
+    "intrinsicHeight": 20.0
+  }
+}

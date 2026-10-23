@@ -1,5 +1,7 @@
 # Menús oscuros y mini escenas
 
+> Documento de la versión anterior `d794034`. La implementación actual ya se contrastó con los cuatro frames originales: [implementación de Figma y capturas nuevas](figma-implementation.md).
+
 Esta actualización afecta únicamente a Bienvenida, Menú principal, Simuladores y Minijuegos. Sigue la especificación escrita del usuario: fondos `#05080D`, `#070D14` y `#09111B`, cyan `#63E6D2`, violeta `#8D7CFF`, ámbar `#FFB85C` y coral `#FF6F86`.
 
 ## Referencia y límite de fidelidad

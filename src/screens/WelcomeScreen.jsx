@@ -1,20 +1,19 @@
-import MenuIcon from '../components/MenuIcon.jsx'
+import FigmaAsset from '../components/FigmaAsset.jsx'
 import SplineHero from '../components/SplineHero.jsx'
 
 export default function WelcomeScreen({ onStart }) {
-  return <main className="welcome-screen menu-theme">
-    <div className="welcome-inner">
-      <header className="welcome-topbar"><span className="mobile-wordmark">ELECTRO<span>WORLD</span></span><span className="edition-label">FÍSICA II</span></header>
-      <div className="welcome-copy">
-        <p className="mobile-eyebrow">CURIOSIDAD EN MOVIMIENTO</p>
-        <h1>Entiende<br />lo invisible<span>.</span></h1>
-        <p className="welcome-subtitle">Tu laboratorio interactivo de Física II.<br />Un espacio para explorar a tu ritmo.</p>
+  return <main className="welcome-screen menu-theme figma-welcome">
+    <div className="figma-welcome-inner">
+      <header className="figma-welcome-brand"><span><FigmaAsset name="orbit-brand" />ELECTROWORLD</span><span>FÍSICA II</span></header>
+      <SplineHero poster={<FigmaAsset name="welcome-instrument" />} />
+      <div className="figma-welcome-copy">
+        <p className="figma-kicker">OBSERVA · EXPERIMENTA · COMPRENDE</p>
+        <h1>La física, en<br />tus manos.</h1>
+        <p className="figma-introduction">Un laboratorio para explorar lo invisible.<br />Simula, juega y descubre cómo funciona.</p>
       </div>
-      <SplineHero />
-      <div className="welcome-action">
-        <p className="welcome-motto">Experimenta <span>/</span> Aprende <span>/</span> Juega</p>
-        <button type="button" className="primary-mobile-button" onClick={onStart}>COMENZAR<MenuIcon name="arrow" /></button>
-        <div className="welcome-bottom"><span>CIENCIA. EXPERIENCIA. DESCUBRIMIENTO.</span><span>01 — EW</span></div>
+      <div className="figma-welcome-action">
+        <button type="button" className="figma-start-button" onClick={onStart}>Comenzar a explorar<FigmaAsset name="arrow-right" /></button>
+        <p>Sin cuenta · A tu ritmo · Desde el primer experimento</p>
       </div>
     </div>
   </main>

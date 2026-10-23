@@ -1,0 +1,33 @@
+<svg width="332" height="88" viewBox="0 0 332 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_10_15)">
+<rect width="332" height="88" rx="16" fill="#07101A" fill-opacity="0.72"/>
+<g filter="url(#filter0_f_10_15)">
+<circle cx="272" cy="76" r="50" fill="#FFB85C" fill-opacity="0.16"/>
+</g>
+<path d="M20 47H78M105 47H150M182 47H238M270 47H312" stroke="url(#paint0_linear_10_15)" stroke-width="3" stroke-linecap="round"/>
+<path d="M78 31V63M86 25V69" stroke="#63E6D2" stroke-width="3" stroke-linecap="round"/>
+<path d="M174 34H158C153.582 34 150 37.5817 150 42V52C150 56.4183 153.582 60 158 60H174C178.418 60 182 56.4183 182 52V42C182 37.5817 178.418 34 174 34Z" fill="#131E29" stroke="#FFB85C"/>
+<path d="M254 63C262.837 63 270 55.8366 270 47C270 38.1634 262.837 31 254 31C245.163 31 238 38.1634 238 47C238 55.8366 245.163 63 254 63Z" fill="#201A12" stroke="#FFB85C" stroke-width="2"/>
+<path d="M248 52C251 45 257 43 260 38M246 43C252 43 257 47 262 53" stroke="#FFE0A3" stroke-width="2" stroke-linecap="round"/>
+<path d="M45 50C46.6569 50 48 48.6569 48 47C48 45.3431 46.6569 44 45 44C43.3431 44 42 45.3431 42 47C42 48.6569 43.3431 50 45 50Z" fill="#63E6D2"/>
+<path d="M125 50C126.657 50 128 48.6569 128 47C128 45.3431 126.657 44 125 44C123.343 44 122 45.3431 122 47C122 48.6569 123.343 50 125 50Z" fill="#8D7CFF"/>
+<path d="M211 50C212.657 50 214 48.6569 214 47C214 45.3431 212.657 44 211 44C209.343 44 208 45.3431 208 47C208 48.6569 209.343 50 211 50Z" fill="#FFB85C"/>
+<path d="M295 50C296.657 50 298 48.6569 298 47C298 45.3431 296.657 44 295 44C293.343 44 292 45.3431 292 47C292 48.6569 293.343 50 295 50Z" fill="#63E6D2"/>
+</g>
+<rect x="0.5" y="0.5" width="331" height="87" rx="15.5" stroke="white" stroke-opacity="0.055"/>
+<defs>
+<filter id="filter0_f_10_15" x="198" y="2" width="148" height="148" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur_10_15"/>
+</filter>
+<linearGradient id="paint0_linear_10_15" x1="-1.63805e-06" y1="4" x2="332" y2="90" gradientUnits="userSpaceOnUse">
+<stop stop-color="#63E6D2"/>
+<stop offset="0.5" stop-color="#8D7CFF"/>
+<stop offset="1" stop-color="#FFB85C"/>
+</linearGradient>
+<clipPath id="clip0_10_15">
+<rect width="332" height="88" rx="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

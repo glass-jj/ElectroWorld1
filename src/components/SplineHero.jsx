@@ -4,7 +4,7 @@ import { getSplineSceneUrl } from '../config/spline.js'
 
 // Only the configured scene loads the runtime. The local artwork is available
 // offline and remains visible while Spline loads or if the scene fails.
-export default function SplineHero() {
+export default function SplineHero({ poster }) {
   const scene = getSplineSceneUrl(import.meta.env.VITE_SPLINE_SCENE_URL)
   const canvasRef = useRef(null)
   const [ready, setReady] = useState(false)
@@ -48,7 +48,7 @@ export default function SplineHero() {
     }
   }, [scene])
   return <div className={`spline-hero ${ready ? 'spline-hero--ready' : ''}`} aria-hidden="true">
-    <div className="spline-poster"><HeroArtwork /></div>
+    <div className="spline-poster">{poster ?? <HeroArtwork />}</div>
     {scene && <canvas ref={canvasRef} className="spline-canvas" />}
   </div>
 }

@@ -1,21 +1,19 @@
-import MenuIcon from '../components/MenuIcon.jsx'
-import ScreenLayout from '../components/ScreenLayout.jsx'
-import MenuPreview from '../components/MenuPreview.jsx'
-import '../games/Games.css'
+import MenuShell from '../components/MenuShell.jsx'
+import FigmaAsset from '../components/FigmaAsset.jsx'
 
 const GAMES = [
-  { id: 'charge-clash', title: 'Carga Clash', icon: 'atom', scene: 'clash', style: 'Reflejos', description: 'Cambia tu polaridad. Captura la carga en el instante preciso.' },
-  { id: 'power-up', title: 'Power Up', icon: 'bolt', scene: 'power', style: 'Precisión', description: 'Mantén, carga y suelta. Encuentra el punto de energía perfecta.' },
-  { id: 'coulomb-shot', title: 'Coulomb Shot', icon: 'arrow', scene: 'shot', style: 'Puntería', description: 'Una zona móvil, tres tiros. Alinea la carga y consigue el impacto.' },
+  { id: 'charge-clash', title: 'Carga Clash', category: 'ATRACCIÓN Y REPULSIÓN', artwork: 'clash-preview', accent: 'cyan', description: 'Elige polaridad y captura la carga en el momento justo.', detail: '45 s · 3 vidas' },
+  { id: 'power-up', title: 'Power Up', category: 'POTENCIA ELÉCTRICA', artwork: 'power-preview', accent: 'amber', description: 'Mantén para cargar y suelta en la corriente justa.', detail: '5 misiones' },
+  { id: 'coulomb-shot', title: 'Coulomb Shot', category: 'FUERZA DE COULOMB', artwork: 'shot-preview', accent: 'violet', description: 'Ajusta la carga y lanza hacia el objetivo móvil.', detail: '5 rondas' },
 ]
 
-export default function GamesMenu({ onBack, onPlay, highScores }) {
-  return <ScreenLayout title="Un poco de física. Mucho instinto." description="Tres formas de poner a prueba tus reflejos y tu precisión." onBack={onBack} eyebrow="MINIJUEGOS" className="interactive-screen games-menu-screen menu-theme">
-    <div className="games-catalog">{GAMES.map((game) => <article className={`game-menu-card game-menu-card--${game.id}`} key={game.id}>
-      <MenuPreview scene={game.scene} />
-      <div className="game-card-heading"><span className="menu-card-icon"><MenuIcon name={game.icon} /></span><div><span className="game-style-tag">{game.style}</span><h2>{game.title}</h2></div></div>
-      <p>{game.description}</p>
-      <div className="game-card-bottom"><span className="game-record">Tu mejor partida<strong>{highScores[game.id]} pts</strong></span><button type="button" className="game-play-button" onClick={() => onPlay(game.id)} aria-label={`Jugar ${game.title}`}>JUGAR<MenuIcon name="arrow" /></button></div>
-    </article>)}</div>
-  </ScreenLayout>
+export default function GamesMenu({ onBack, onPlay, highScores, onSimulators }) {
+  return <MenuShell title="Minijuegos" section="games" onBack={onBack} onHome={onBack} onSimulators={onSimulators} onGames={() => {}} className="figma-games-menu">
+    <div className="figma-heading"><h1>La intuición<br />también se entrena.</h1><p className="figma-introduction">Tres formas de jugar con lo que aprendes.</p></div>
+    <div className="figma-games-catalog">{GAMES.map((game) => <button type="button" className={`figma-card figma-game-card figma-card--${game.accent} game-menu-card--${game.id}`} key={game.id} onClick={() => onPlay(game.id)} aria-label={`Jugar ${game.title}`}>
+      <span className="figma-game-copy"><span className="figma-kicker">{game.category}</span><span className="figma-game-title">{game.title}</span><span className="figma-card-description">{game.description}</span><span className="figma-game-meta">{game.detail} · Récord <strong>{highScores[game.id]}</strong></span></span>
+      <span className="figma-game-art"><FigmaAsset name={game.artwork} /></span>
+    </button>)}</div>
+    <p className="figma-menu-tip"><FigmaAsset name="bulb" /><span>Experimentar también es equivocarse. Cada intento te enseña algo.</span></p>
+  </MenuShell>
 }

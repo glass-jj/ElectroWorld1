@@ -43,13 +43,13 @@ export default function App() {
   let content
   switch (screen) {
     case 'main-menu':
-      content = <MainMenu onBack={() => setScreen('welcome')} onSimulators={openSimulators} onGames={() => setScreen('games')} />
+      content = <MainMenu onBack={() => setScreen('welcome')} onSimulators={openSimulators} onGames={openGames} onOhmsLaw={() => setScreen('ohms-law')} />
       break
     case 'simulators':
-      content = <SimulatorsMenu onBack={() => setScreen('main-menu')} onElectricField={() => setScreen('electric-field')} onOhmsLaw={() => setScreen('ohms-law')} />
+      content = <SimulatorsMenu onBack={() => setScreen('main-menu')} onElectricField={() => setScreen('electric-field')} onOhmsLaw={() => setScreen('ohms-law')} onGames={openGames} />
       break
     case 'games':
-      content = <GamesMenu onBack={() => setScreen('main-menu')} onPlay={setScreen} highScores={highScores} />
+      content = <GamesMenu onBack={() => setScreen('main-menu')} onPlay={setScreen} highScores={highScores} onSimulators={openSimulators} />
       break
     case 'charge-clash':
       content = <ChargeClash onBack={openGames} onRecord={(score) => recordScore('charge-clash', score)} />
