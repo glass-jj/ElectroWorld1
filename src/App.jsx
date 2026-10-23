@@ -10,6 +10,7 @@ import PowerUp from './games/PowerUp.jsx'
 import CoulombShot from './games/CoulombShot.jsx'
 import { createInitialLab, labReducer } from './lab/laboratory.js'
 import './App.css'
+import './styles/MenuTheme.css'
 
 // Load Three.js only when the electric field laboratory is opened.
 const ElectricFieldLab = lazy(() => import('./screens/ElectricFieldLab.jsx'))

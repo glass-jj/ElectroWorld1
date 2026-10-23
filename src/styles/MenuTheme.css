@@ -1,0 +1,160 @@
+/* Opt in on the four entry screens only. The laboratory/game layouts and
+   shared defaults in App.css, Games.css and Circuit.css deliberately stay intact. */
+.menu-theme {
+  --ew-bg: #05080d;
+  --ew-surface: #0a121c;
+  --ew-raised: #101c29;
+  --ew-line: #ffffff14;
+  --ew-text: #eef4fa;
+  --ew-muted: #a5b4c5;
+  --ew-dim: #8294a9;
+  --ew-accent: #63e6d2;
+  background:
+    radial-gradient(ellipse at 100% 8%, #8d7cff08, transparent 44%),
+    radial-gradient(ellipse at 0% 42%, #63e6d209, transparent 52%),
+    linear-gradient(165deg, #05080d, #070d14 55%, #09111b);
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+}
+.menu-theme .mobile-wordmark { color: #eef4fa; font-size: 11px; letter-spacing: 1.7px; }
+.menu-theme .mobile-wordmark > span { color: #63e6d2; }
+.menu-theme .edition-label { color: #a5b4c5; font-size: 10px; letter-spacing: 1.3px; }
+.menu-theme .mobile-eyebrow { color: #91bdc1; font-size: 10px; letter-spacing: 1.6px; }
+.menu-theme .mobile-screen-heading { padding: 34px 0 26px; }
+.menu-theme .mobile-screen-heading h1 { font-size: clamp(29px, 8.6vw, 38px); font-weight: 500; letter-spacing: -1.3px; line-height: 1.17; }
+.menu-theme .mobile-description { color: #a5b4c5; font-size: 14px; line-height: 1.7; margin-top: 14px; }
+.menu-theme .screen-back-button { width: 46px; height: 46px; color: #c5d8e5; background: #0c1722; border-color: #ffffff14; }
+.menu-theme .mobile-screen-footer { color: #8294a9; font-size: 8px; letter-spacing: 1px; padding-top: 30px; padding-bottom: 2px; }
+.menu-theme :is(button, input):focus-visible { outline: 2px solid #63e6d2; outline-offset: 4px; }
+
+/* Dark glass has an opaque fallback; content always has a stable dark backing. */
+.menu-theme :is(.menu-card, .game-menu-card) {
+  --card-accent: #63e6d2;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ffffff14;
+  border-radius: 22px;
+  background: linear-gradient(130deg, #14243244, transparent 65%), #0a121c;
+  box-shadow: inset 0 1px 0 #ffffff06, 0 12px 32px #0000001f;
+}
+@supports ((backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px))) {
+  .menu-theme :is(.menu-card, .game-menu-card) {
+    background: linear-gradient(130deg, #14243244, transparent 65%), #0a121cd6;
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+}
+.menu-theme .menu-card { padding: 22px; gap: 18px; min-height: 188px; }
+.menu-theme .menu-card--violet, .menu-theme .game-menu-card--coulomb-shot { --card-accent: #b4a8ff; }
+.menu-theme .menu-card--amber, .menu-theme .game-menu-card--power-up { --card-accent: #ffb85c; }
+.menu-theme .menu-card-top { color: var(--card-accent); }
+.menu-theme .menu-card-top > .menu-icon { width: 27px; height: 27px; }
+.menu-theme .card-index { color: #8a9aad; font-size: 10px; letter-spacing: 1px; }
+.menu-theme .menu-card-title { color: #edf4fa; font-size: 23px; font-weight: 500; letter-spacing: -0.6px; }
+.menu-theme .menu-card-description { color: #a5b4c5; font-size: 13px; line-height: 1.7; }
+.menu-theme .menu-card-bottom { color: #9eafbf; font-size: 11px; }
+.menu-theme .menu-card-arrow { color: var(--card-accent); width: 22px; height: 22px; }
+.menu-theme :is(.menu-card:not(:disabled), .primary-mobile-button, .game-play-button, .screen-back-button) {
+  transition: transform 150ms ease, border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+.menu-theme button:hover:not(:disabled) { filter: none; }
+.menu-theme :is(.menu-card:not(:disabled), .primary-mobile-button, .game-play-button, .screen-back-button):active {
+  transform: scale(0.98);
+  border-color: #63e6d270;
+  box-shadow: inset 0 0 0 1px #63e6d212, 0 0 16px #63e6d208;
+}
+@media (hover: hover) {
+  .menu-theme .menu-card:not(:disabled):hover { border-color: #ffffff30; background-color: #10202b; }
+  .menu-theme .game-play-button:hover { border-color: var(--card-accent); }
+}
+
+/* Welcome: the existing Spline slot and static fallback keep their behavior. */
+.menu-theme .welcome-inner { max-width: 460px; }
+.menu-theme .welcome-copy { padding-top: clamp(34px, 6svh, 56px); }
+.menu-theme .welcome-copy h1 { color: #eef4fa; font-size: clamp(43px, 12.8vw, 62px); line-height: 1.06; font-weight: 500; letter-spacing: -2.4px; margin-top: 17px; }
+.menu-theme .welcome-copy h1 > span { color: #63e6d2; }
+.menu-theme .welcome-subtitle { color: #a5b4c5; font-size: 14px; line-height: 1.8; margin-top: 20px; }
+.menu-theme .spline-hero { margin: 12px 0 14px; height: clamp(210px, 31svh, 290px); }
+.menu-theme .welcome-motto { color: #b0c1cf; font-size: 12px; text-align: center; letter-spacing: 0.3px; margin-bottom: 22px; }
+.menu-theme .welcome-motto > span { color: #57798b; }
+.menu-theme .primary-mobile-button { border: 1px solid #8beedc; background: #63e6d2; color: #061c22; border-radius: 16px; font-size: 13px; font-weight: 650; min-height: 58px; padding: 17px 22px; box-shadow: inset 0 1px 0 #ffffff40, 0 6px 22px #63e6d20a; }
+.menu-theme .welcome-bottom { color: #8294a9; font-size: 8px; line-height: 1.6; letter-spacing: 0.8px; padding-top: 22px; }
+
+/* Dashboard uses category icons. The laboratory miniatures stay in the catalog. */
+.menu-theme .dashboard-intro { color: #8b9daf; font-size: 9px; letter-spacing: 1.2px; margin-bottom: 16px; }
+.menu-theme .main-menu-cards { gap: 16px; }
+.menu-theme .main-menu-cards .menu-card { min-height: 195px; }
+.menu-theme .main-menu-cards .menu-card::after { top: 27px; right: -21px; width: 130px; height: 130px; border-color: #63e6d20a; box-shadow: 0 0 0 22px #63e6d204, 0 0 0 44px #63e6d202; }
+.menu-theme .main-menu-cards .menu-card--violet::after { border-color: #8d7cff14; box-shadow: 0 0 0 22px #8d7cff05, 0 0 0 44px #8d7cff03; }
+.menu-theme .dashboard-note { color: #c1d1dc; font-size: 13px; line-height: 1.8; padding-top: 26px; }
+.menu-theme .dashboard-note > span { color: #91a4b8; }
+
+/* Small SVG scenes: no WebGL, image requests, SVG blur filters, or JS loops. */
+.menu-theme .menu-preview { display: block; position: relative; pointer-events: none; width: 100%; overflow: hidden; background: radial-gradient(ellipse at 30% 50%, #63e6d208, transparent 65%), radial-gradient(ellipse at 80% 70%, #8d7cff0a, transparent 65%); }
+.menu-theme .menu-preview > svg { display: block; width: 100%; height: 100%; }
+.menu-theme .menu-card--illustrated { gap: 13px; padding-top: 0; }
+.menu-theme .menu-card--illustrated > .menu-preview { align-self: center; flex-shrink: 0; width: calc(100% + 44px); height: 142px; margin: 0 -22px 3px; border-bottom: 1px solid #ffffff08; }
+.menu-theme .menu-card--illustrated .menu-card-top { position: absolute; top: 17px; left: 19px; right: 19px; width: auto; }
+.menu-theme .menu-card--illustrated .menu-card-top > .menu-icon { width: 19px; height: 19px; opacity: 0.8; }
+.menu-theme .menu-card--illustrated .menu-card-title { font-size: 21px; }
+.menu-theme .menu-card--illustrated .menu-card-description { max-width: none; }
+.menu-theme .menu-card--illustrated .menu-card-bottom { padding-top: 2px; }
+.menu-theme.simulators-screen .menu-card-list { gap: 18px; }
+.menu-theme .upcoming-simulators { margin-top: 26px; }
+.menu-theme .upcoming-simulators > p { color: #8294a9; font-size: 9px; }
+.menu-theme .upcoming-list { border-radius: 18px; border-color: #ffffff12; }
+.menu-theme .upcoming-list .menu-card { min-height: 70px; border: 0; border-radius: 0; background: #0a121cd9; padding: 14px 16px; gap: 12px; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.menu-theme .upcoming-list .menu-card + .menu-card { border-top: 1px solid #ffffff0c; }
+.menu-theme .upcoming-list .menu-card-title { font-size: 13px; font-weight: 400; letter-spacing: 0; color: #9babbc; }
+.menu-theme .upcoming-list .menu-card-top { color: #7c90a7; }
+.menu-theme .coming-soon-badge { color: #8a9bb0; font-size: 10px; }
+
+/* Game cards are scoped to the catalog; game arenas and HUDs are untouched. */
+.menu-theme .games-catalog { gap: 18px; }
+.menu-theme .game-menu-card { padding: 0 21px 20px; }
+.menu-theme .game-menu-card > .menu-preview { height: 112px; width: calc(100% + 42px); margin: 0 -21px 18px; border-bottom: 1px solid #ffffff08; }
+.menu-theme .game-card-heading { gap: 12px; }
+.menu-theme .game-card-heading > .menu-card-icon { width: 39px; height: 39px; border: 1px solid #ffffff14; color: var(--card-accent); background: #101d2a; border-radius: 12px; }
+.menu-theme .game-card-heading > .menu-card-icon .menu-icon { width: 21px; height: 21px; }
+.menu-theme .game-card-heading h2 { color: #eef4fa; font-size: 20px; font-weight: 500; line-height: 1.5; letter-spacing: -0.4px; }
+.menu-theme .game-style-tag { color: var(--card-accent); font-size: 9px; letter-spacing: 1.2px; }
+.menu-theme .game-menu-card p { color: #a5b4c5; font-size: 13px; line-height: 1.7; margin: 12px 0 18px; }
+.menu-theme .game-record { color: #92a4b8; font-size: 10px; }
+.menu-theme .game-record strong { color: #d9e7f1; font-size: 20px; margin-top: 4px; }
+.menu-theme .game-play-button { min-height: 48px; min-width: 116px; border: 1px solid #ffffff22; border-radius: 13px; color: var(--card-accent); background: #14232e; font-size: 11px; letter-spacing: 0.6px; }
+
+.menu-theme .preview-particle { animation: menu-float 7s ease-in-out infinite; }
+.menu-theme .preview-particle--negative { animation-delay: -3.5s; }
+.menu-theme .preview-current { animation: menu-current 9s linear infinite; }
+.menu-theme .preview-current--shot { animation: menu-trajectory 8s linear infinite; }
+@keyframes menu-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes menu-current { to { stroke-dashoffset: -156; } }
+@keyframes menu-trajectory { 0%, 30% { stroke-dashoffset: 0; opacity: 0; } 34% { opacity: 1; } 80% { stroke-dashoffset: -300; opacity: 1; } 85%, 100% { stroke-dashoffset: -321; opacity: 0; } }
+@media (max-width: 360px) {
+  .menu-theme { padding-left: max(18px, env(safe-area-inset-left)); padding-right: max(18px, env(safe-area-inset-right)); }
+  .menu-theme .mobile-wordmark { font-size: 10px; letter-spacing: 0.9px; }
+  .menu-theme .edition-label { font-size: 9px; letter-spacing: 0.7px; }
+  .menu-theme .mobile-screen-heading h1 { font-size: 29px; }
+  .menu-theme .welcome-copy h1 { font-size: 43px; }
+  .menu-theme .welcome-bottom { font-size: 7px; letter-spacing: 0.3px; }
+  .menu-theme .menu-card { padding-left: 19px; padding-right: 19px; }
+  .menu-theme .menu-card--illustrated > .menu-preview { width: calc(100% + 38px); margin-left: -19px; margin-right: -19px; height: 128px; }
+}
+@media (max-height: 740px) {
+  .menu-theme .welcome-copy { padding-top: 26px; }
+  .menu-theme .welcome-copy h1 { font-size: 43px; }
+  .menu-theme .welcome-subtitle { margin-top: 15px; }
+  .menu-theme .spline-hero { min-height: 170px; flex-basis: 170px; height: 190px; }
+}
+@media (min-width: 760px) {
+  .menu-theme .welcome-inner { max-width: 480px; }
+  .menu-theme .welcome-copy h1 { font-size: 66px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-theme .preview-particle, .menu-theme .preview-current { animation: none; }
+  .menu-theme .preview-current--shot { opacity: 0; }
+  .menu-theme :is(button, .spline-poster, .spline-canvas) { transition: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .menu-theme :is(.menu-card, .game-menu-card) { background: #0a121c; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}

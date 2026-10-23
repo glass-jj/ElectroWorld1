@@ -1,5 +1,7 @@
 # Rediseño oscuro y juegos arcade
 
+> La portada y los menús recibieron una actualización visual posterior: [menús de vidrio oscuro y mini escenas](glass-menus.md). Este documento conserva las reglas arcade y las instrucciones de Spline.
+
 ## Interfaz
 
 La portada y los menús usan negro, grafito, marfil y un acento oliva discreto. Se sustituyeron la ilustración de neón, los degradados de tarjetas y los encabezados saturados por tipografía ligera, jerarquía más clara y superficies neutras. La portada incluye una composición metálica SVG local que funciona sin conexión.

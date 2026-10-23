@@ -52,4 +52,4 @@ Los intentos fallidos se pueden repetir. Las partidas tienen botones de regreso 
 
 Consulta [la arquitectura, reglas y pruebas de Ohm y los juegos](docs/ohm-and-games.md).
 
-La portada y los menús tienen un nuevo estilo negro, grafito y marfil. [Vista previa, reglas arcade y activación de Spline](docs/dark-redesign-and-spline.md).
+La portada y los menús usan ahora fondos azul oscuro, vidrio ahumado y mini escenas SVG ligeras. Los laboratorios y las partidas conservan su diseño. Consulta [el alcance, las capturas y el límite de comparación con Figma](docs/glass-menus.md). Las [reglas arcade y la configuración de Spline](docs/dark-redesign-and-spline.md) se conservan.

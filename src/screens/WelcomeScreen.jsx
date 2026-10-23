@@ -2,7 +2,7 @@ import MenuIcon from '../components/MenuIcon.jsx'
 import SplineHero from '../components/SplineHero.jsx'
 
 export default function WelcomeScreen({ onStart }) {
-  return <main className="welcome-screen">
+  return <main className="welcome-screen menu-theme">
     <div className="welcome-inner">
       <header className="welcome-topbar"><span className="mobile-wordmark">ELECTRO<span>WORLD</span></span><span className="edition-label">FÍSICA II</span></header>
       <div className="welcome-copy">
