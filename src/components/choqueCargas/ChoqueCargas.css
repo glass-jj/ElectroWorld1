@@ -1,0 +1,26 @@
+.game-hud { display: grid; grid-template-columns: 1fr 1fr 1fr; margin: 0 0 16px; border: 1px solid #2c2e35; border-radius: 10px; background: #15161b; }
+.game-hud > div { padding: 12px 7px; text-align: center; }
+.game-hud > div + div { border-left: 1px solid #2b2d33; }
+.game-hud dt { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #91929c; }
+.game-hud dd { margin: 7px 0 0; color: #e6e6dd; font-size: 21px; font-variant-numeric: tabular-nums; font-weight: 500; }
+.game-summary { text-align: center; background: #16181b; border: 1px solid #393e38; border-radius: 16px; padding: 26px 18px 12px; }
+.game-summary h2 { font-size: 30px; font-weight: 450; margin-top: 13px; }
+.summary-score { font-size: 54px; color: #d3d8c8; font-weight: 500; margin-top: 24px; }
+.summary-score > span { display: block; font-size: 11px; color: #969e8e; font-weight: 400; }
+.summary-detail { font-size: 12px; line-height: 1.8; color: #a2aa9b; margin: 20px 0 25px; }
+.game-text-button { background: none; border: 0; color: #b4b9ad; min-height: 48px; font-size: 12px; margin-top: 12px; }
+.capture-arena { background: #121419; border: 1px solid #2c3037; border-radius: 14px; overflow: hidden; }
+.capture-lane { position: relative; height: 225px; width: 100%; background-image: linear-gradient(90deg, transparent 49.8%, #2c303a 50%, transparent 50.2%); }
+.capture-zone { position: absolute; left: 15%; width: 70%; top: 47%; height: 24%; background: #747e5c1a; border: 1px dashed #747e5c99; border-radius: 9px; }
+.capture-zone > span { position: absolute; right: 7px; bottom: 7px; color: #9ca98b; font-size: 7px; letter-spacing: 1px; }
+.incoming-charge, .collector-charge { position: absolute; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 45px; height: 45px; border-radius: 50%; color: #f2f4fa; font-size: 28px; border: 1px solid #8db5f1; background: #315987; }
+.incoming-charge.negative, .collector-charge.negative { border-color: #db9ba7; background: #7b3f50; }
+.incoming-charge { transition: top 40ms linear; }
+.collector-charge { top: 91%; width: 49px; height: 49px; outline: 5px solid #949caa14; }
+.capture-timing { min-height: 44px; text-align: center; font-size: 11px; line-height: 1.7; padding: 9px 13px 12px; color: #bac6ad; }
+.capture-arena--hit { border-color: #8a9b70; }
+.polarity-switch { display: flex; gap: 10px; margin: 16px 0; }
+.polarity-switch > button { flex: 1; min-height: 48px; padding: 10px; border: 1px solid #353842; border-radius: 9px; color: #a5a8b4; background: #181a20; font-size: 12px; touch-action: manipulation; }
+.polarity-switch > button[aria-pressed='true'] { border-color: #919a81; color: #e4e9da; background: #2a2e24; }
+@media (max-width: 360px) { .capture-lane { height: 210px; } }
+@media (prefers-reduced-motion: reduce) { .incoming-charge { top: 45% !important; transition: none; } }

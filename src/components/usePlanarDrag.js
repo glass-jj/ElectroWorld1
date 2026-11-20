@@ -2,8 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useThree } from '@react-three/fiber'
 import { Plane, Raycaster, Vector2, Vector3 } from 'three'
 
-// Native captured pointer events keep a drag alive outside the mesh/canvas.
-// A single ray and XY plane are reused for the duration of each gesture.
+// Mantiene el arrastre aunque el puntero salga de la carga.
 export function usePlanarDrag({ position, onSelect, onMove, onDragChange }) {
   const get = useThree((state) => state.get)
   const finishRef = useRef(null)

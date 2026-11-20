@@ -1,5 +1,7 @@
 # Rediseño oscuro y juegos arcade
 
+> Registro histórico de una versión anterior de la interfaz.
+
 > La portada y los menús recibieron una actualización visual posterior: [menús de vidrio oscuro y mini escenas](glass-menus.md). Este documento conserva las reglas arcade y las instrucciones de Spline.
 
 ## Interfaz
@@ -41,14 +43,14 @@ Una escena real y su rendimiento en Android no se pudieron validar sin el archiv
 - Cada captura suma 100 puntos, con hasta 100 puntos adicionales por racha. Las cargas llegan más rápido conforme progresas, con un límite de velocidad.
 - La física educativa se mantiene: los signos opuestos se atraen y los iguales se repelen.
 
-### Power Up: mantener y soltar
+### el reto de corriente retirado: mantener y soltar
 
 - Mantén pulsado para aumentar el voltaje y suelta cuando la corriente entre en la zona objetivo. Si mantienes demasiado tiempo, el nivel vuelve a bajar y puedes esperar al siguiente ciclo.
 - Elige entre 2, 4 o 6 Ω; la corriente y la potencia siguen las fórmulas de Ohm.
 - Hay cinco misiones y tres vidas. El margen arcade es ±8 %; la puntuación va de 300 a 500 por misión según precisión. El helper numérico original de ±5 % sigue disponible, pero esta interfaz utiliza el nuevo juez arcade.
 - Cancelar el toque o perder el foco interrumpe la carga sin gastar una vida. También se puede mantener y soltar Espacio o Enter.
 
-### Coulomb Shot: puntería y objetivo móvil
+### el reto de lanzamiento retirado: puntería y objetivo móvil
 
 - Elige distancia: 2,5 / 4 / 5,5 m. Mantén para aumentar la magnitud de carga y suelta para lanzar.
 - La marca de llegada muestra el alcance previsto y la zona se desplaza. La posición de la zona se fija durante el vuelo para evaluar el tiro de forma consistente.
@@ -64,7 +66,7 @@ Los récords se mantienen en React durante la sesión. Las partidas se reinician
 - `HeroArtwork.jsx`: ilustración local. `SplineHero.jsx`: carga, descarte de recursos y fallback. `config/spline.js`: validación de la URL. `.env.example`: configuración de ejemplo.
 - `arcadeLogic.js`: lógica pura de captura, precisión, carga y movimiento de objetivo.
 - `useHoldCharge.js`, `useArcadeLoop.js`, `useReducedMotion.js`: gestos, ciclos y accesibilidad.
-- `ChargeClash.jsx`, `PowerUp.jsx`, `CoulombShot.jsx` y `Games.css`: nuevas partidas.
+- Partidas y estilos de la versión anterior.
 - `useCountdown.js`: permite detener el reloj al perder todas las vidas.
 - `Circuit.css`: actualización de colores del circuito, sin cambiar las fórmulas.
 - `tests/arcade-and-spline.test.js`: ocho pruebas nuevas; las 32 anteriores siguen pasando.
@@ -74,7 +76,7 @@ Los récords se mantienen en React durante la sesión. Las partidas se reinician
 - `npm run build`, `npm run lint` y `npm test`: correctos. 40 pruebas aprobadas.
 - Chromium con emulación táctil: portada, menús, ausencia de descarga de Spline sin configuración, capturas, combos, vidas, temporizador, partidas completas, precisión, objetivos móviles, reinicio, cancelación del toque y récords.
 - Anchos de 320, 360, 390 y 430 px, además de horizontal: sin desbordamiento; botones de juegos de al menos 44 px.
-- Movimiento reducido: objetivo de Coulomb Shot estático y Spline sin iniciar. La ilustración local permanece disponible.
+- Movimiento reducido: objetivo de el reto de lanzamiento retirado estático y Spline sin iniciar. La ilustración local permanece disponible.
 - Escena de Spline ausente: portada local y navegación operativas; no se probó una escena real proporcionada por el usuario porque aún falta ese recurso.
 - Las 16 comprobaciones anteriores del laboratorio eléctrico siguen aprobadas.
 - Android y Capacitor no se modificaron. No se compiló un APK ni se validó un dispositivo físico.

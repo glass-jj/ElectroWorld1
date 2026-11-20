@@ -1,0 +1,30 @@
+.circuit { margin: 0; border: 1px solid #363c35; border-radius: 18px; background: radial-gradient(ellipse at 85% 50%, #35301a25, transparent 55%), #13161a; overflow: hidden; }
+.circuit svg { display: block; width: 100%; max-height: 270px; }
+.circuit-wire-shadow { fill: none; stroke: #343c37; stroke-width: 9; stroke-linejoin: round; }
+.circuit-wire { fill: none; stroke: #8c9885; stroke-width: 2; stroke-linejoin: round; }
+.circuit-resistor { fill: none; stroke: #f0c384; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.circuit-source-bg { fill: #1b211d; }
+.circuit-source { stroke: #bcc9ad; stroke-width: 3; stroke-linecap: round; }
+.circuit-sign { fill: #c5cdb9; font-size: 12px; }
+.circuit-label { fill: #8e9790; font-size: 9px; letter-spacing: 1px; }
+.circuit-current { fill: #e0e7d6; font-size: 24px; font-weight: 550; font-variant-numeric: tabular-nums; }
+.circuit-bulb { stroke: #d3b876; stroke-width: 2; transition: fill 180ms; }
+.circuit-filament { fill: none; stroke: #fff2be; stroke-width: 2; stroke-linecap: round; }
+.circuit-particle { fill: #c7d3ad; offset-path: path('M48 100V40H292V180H48Z'); animation: current-flow 3s linear infinite; }
+.ohm-controls { display: grid; gap: 15px; margin: 20px 0; }
+.ohm-control { padding: 14px 16px 10px; border: 1px solid #31343a; background: #16181d; border-radius: 12px; }
+.ohm-control > div { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+.ohm-control label { color: #b9bcb8; font-size: 13px; }
+.ohm-control output { color: #d2dac3; font-size: 15px; font-weight: 550; font-variant-numeric: tabular-nums; }
+.ohm-control input[type='range'] { min-height: 44px; margin: 0; touch-action: pan-y; }
+.ohm-control .control-extents { color: #848b87; font-size: 10px; }
+.ohm-readings { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 0; }
+.ohm-readings > div { padding: 14px; border: 1px solid #303630; border-radius: 12px; background: #161b17; }
+.ohm-readings dt { font-size: 11px; color: #969f91; }
+.ohm-readings dd { margin: 7px 0 0; font-size: 23px; color: #dce5ce; font-variant-numeric: tabular-nums; }
+.ohm-readings small { font-size: 12px; color: #9da992; }
+@keyframes current-flow { to { offset-distance: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .circuit-particle { fill: #c7d3ad; animation: none; offset-distance: 25%; }
+  .circuit-bulb { transition: none; }
+}

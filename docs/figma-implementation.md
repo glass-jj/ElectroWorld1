@@ -1,5 +1,7 @@
 # Implementación de las cuatro pantallas de Figma
 
+> Registro histórico de una versión anterior de la interfaz.
+
 La revisión anterior (`d794034`) cambió la paleta y añadió miniaturas, pero conservó la composición anterior. Esta actualización sí consulta los cuatro frames originales de [Figma](https://www.figma.com/design/a77knbrQbfwOoir3zjj7B1/Sin-t%C3%ADtulo?node-id=0-1) mediante contexto de diseño y capturas:
 
 | Pantalla | Frame | Implementación |
@@ -46,6 +48,6 @@ No se modificaron Campo Eléctrico, Ley de Ohm, los controles de los laboratorio
 - Navegación inferior, regresos, experimento sugerido y diálogo de ayuda comprobados. Sin desbordamiento horizontal; botones de al menos 44 px.
 - Comparación automatizada con la versión previa: mismas posiciones, dimensiones, controles y estilos calculados en ambos laboratorios y en las tres partidas. Se excluye el signo aleatorio inicial de Carga Clash de la comparación textual.
 - Persistencia de cargas al navegar y lectura de Ohm tras cambiar voltaje comprobadas. Variante de transparencia reducida comprobada. Sin errores JavaScript en los recorridos revisados.
-- Partidas completas de los tres juegos comprobadas: captura por signo y tiempo, rachas, vidas, cinco misiones de mantener/soltar, cancelación táctil, puntería, intentos, rondas, reinicio y récords. Coulomb Shot mantiene el objetivo estático con movimiento reducido.
+- Partidas completas de los tres juegos comprobadas: captura por signo y tiempo, rachas, vidas, cinco misiones de mantener/soltar, cancelación táctil, puntería, intentos, rondas, reinicio y récords. el reto de lanzamiento retirado mantiene el objetivo estático con movimiento reducido.
 
 La validación se realiza en Chromium con emulación móvil. No se compiló un APK ni se probó un Android físico.

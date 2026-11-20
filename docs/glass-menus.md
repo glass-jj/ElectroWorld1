@@ -1,5 +1,7 @@
 # Menús oscuros y mini escenas
 
+> Registro histórico de una versión anterior de la interfaz.
+
 > Documento de la versión anterior `d794034`. La implementación actual ya se contrastó con los cuatro frames originales: [implementación de Figma y capturas nuevas](figma-implementation.md).
 
 Esta actualización afecta únicamente a Bienvenida, Menú principal, Simuladores y Minijuegos. Sigue la especificación escrita del usuario: fondos `#05080D`, `#070D14` y `#09111B`, cyan `#63E6D2`, violeta `#8D7CFF`, ámbar `#FFB85C` y coral `#FF6F86`.
@@ -11,7 +13,7 @@ La referencia solicitada es [el archivo de Figma](https://www.figma.com/design/a
 ## Implementación
 
 - `src/styles/MenuTheme.css`: tema limitado a `.menu-theme`, aplicado solo a las cuatro pantallas de entrada. Vidrio ahumado con respaldo opaco, radios de 22 px, bordes suaves, reflejos discretos, botones y respuesta táctil de 150 ms.
-- `src/components/MenuPreview.jsx`: cinco mini escenas SVG decorativas. Cargas y líneas de campo para Campo eléctrico; batería, resistencia, bombilla y corriente para Ohm; atracción para Carga Clash; circuito cálido para Power Up; trayectoria y objetivo para Coulomb Shot.
+- `src/components/MenuPreview.jsx`: cinco mini escenas SVG decorativas. Cargas y líneas de campo para Campo eléctrico; batería, resistencia, bombilla y corriente para Ohm; atracción para Carga Clash; circuito cálido para el reto de corriente retirado; trayectoria y objetivo para el reto de lanzamiento retirado.
 - `MenuCard` admite una preview opcional. Las miniaturas de los laboratorios se usan exclusivamente en el menú de simuladores. No se insertan dentro del laboratorio real.
 - La portada conserva el comportamiento de Spline y su respaldo local. Solo se adapta la ilustración SVG a la nueva paleta; no se configura ni inventa una escena de Spline.
 
@@ -37,7 +39,7 @@ La navegación y sus estados no cambian. `App.jsx` únicamente importa la hoja d
 - `npm test`: 40 pruebas aprobadas, sin fallos.
 - Chromium con emulación táctil: navegación de bienvenida a cada laboratorio y a cada partida, con sus regresos. Gauss y Magnetismo siguen desactivados.
 - Los cuatro menús se revisaron a 390 × 844, 360 × 800, 430 × 932, 320 × 800 y 844 × 390. Sin desbordamiento horizontal; botones de al menos 44 px. En la bienvenida de 390 × 844, COMENZAR permanece visible sin desplazamiento.
-- Comparación con una copia del commit anterior `c3bd7f2`: mismas posiciones, dimensiones y estilos calculados en controles y contenedores de Campo eléctrico, Ohm, Carga Clash, Power Up y Coulomb Shot. El signo inicial aleatorio de Carga Clash se excluyó de la comparación de textos.
+- Comparación con una copia del commit anterior `c3bd7f2`: mismas posiciones, dimensiones y estilos calculados en controles y contenedores de Campo eléctrico, Ohm, Carga Clash, los dos juegos retirados. El signo inicial aleatorio de Carga Clash se excluyó de la comparación de textos.
 - Los menús no crean canvas ni solicitan ilustraciones externas. Spline sin escena configurada sigue sin descargar su runtime.
 - Movimiento normal, `prefers-reduced-motion` y `prefers-reduced-transparency` comprobados en Chromium. Sin errores JavaScript ni errores de consola en los recorridos revisados.
 
